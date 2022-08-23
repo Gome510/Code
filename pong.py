@@ -81,24 +81,28 @@ while True:
     if abs(ball.ycor()) > 290:
         ball.sety(290 * (ball.ycor()/abs(ball.ycor())))
         ball.dy *= -1
-    
-    #Paddle Check
-    if abs(ball.xcor()) ==  350:
-        if ball.xcor() == 350:
-            if (ball.ycor() >= paddle_b.ycor() -2.5) and (ball.ycor()<= paddle_b.ycor() + 2.5):
-                ball.setx(350)
-                ball.dx *= -1
-        if ball.xcor() == -350:
-            if (ball.ycor() >= paddle_a.ycor() -2.5) and (ball.ycor()<= paddle_a.ycor() + 2.5):
-                ball.setx(-350)
-                ball.dx *= -1
+        
     #Goal Checking
-    if abs(ball.xcor()) > 390:
-        if ball.xcor() > 390:
-            player_a += 1
-        if ball.ycor() < -390:
-            player_b += 1
+    if ball.xcor() > 390:
+        player_a += 1
+        ball.goto(0,0)
+        ball.dx *= -1
+        
+    if ball.ycor() < -390:
+        player_b += 1
+        ball.goto(0,0)
+        ball.dx *= -1
+        
+    
+    #Paddle Check    
+    if ball.xcor() == 350:
+        if (ball.ycor() >= paddle_b.ycor() -2.5) and (ball.ycor()<= paddle_b.ycor() + 2.5):
+            ball.setx(350)
+            ball.dx *= -1
+    if ball.xcor() == -350:
+        if (ball.ycor() >= paddle_a.ycor() -2.5) and (ball.ycor()<= paddle_a.ycor() + 2.5):
+            ball.setx(-350)
+            ball.dx *= -1
             
-        #reset ball pos
-        ball.sety(0)
-        ball.setx(0)
+
+
