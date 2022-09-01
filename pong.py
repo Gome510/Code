@@ -73,19 +73,36 @@ wn.onkeypress(paddle_b_down, "Down")
 while True:
     wn.update()
     
+    
     #Move ball
-    ball.setx(ball.xcor() + ball.dx)
-    ball.sety(ball.ycor() + ball.dy)
+    ball.goto(ball.xcor() + ball.dx, ball.ycor() + ball.dy)
+
 
     #Border checking
     if abs(ball.ycor()) > 290:
         ball.sety(290 * (ball.ycor()/abs(ball.ycor())))
         ball.dy *= -1
+<<<<<<< HEAD
         
+=======
+    
+    #Paddle Check
+
+    if (ball.xcor() > 340 and ball.xcor() < 350) and ((ball.ycor() > paddle_b.ycor() -40) and (ball.ycor() < paddle_b.ycor() + 40)):
+            ball.setx(340)
+            ball.dx *= -1
+
+    if (ball.xcor() < -340 and ball.xcor() > -350) and ((ball.ycor() > paddle_a.ycor() -40) and (ball.ycor() < paddle_a.ycor() + 40)):
+            ball.setx(-340)
+            ball.dx *= -1
+
+
+>>>>>>> 194f305ae27451a0ffa71139e2b94d60aa9089de
     #Goal Checking
     if ball.xcor() > 390:
         player_a += 1
         ball.goto(0,0)
+<<<<<<< HEAD
         ball.dx *= -1
         
     if ball.ycor() < -390:
@@ -106,3 +123,9 @@ while True:
             
 
 
+=======
+    if ball.ycor() < -390:
+        player_b += 1
+        ball.goto(0,0)
+            
+>>>>>>> 194f305ae27451a0ffa71139e2b94d60aa9089de
