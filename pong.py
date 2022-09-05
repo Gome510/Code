@@ -107,7 +107,11 @@ while True:
     if ball.xcor() > 390:
         player_a += 1
         ball.goto(0,0)
+        pen.clear()
+        pen.write("{} {}",format(), align="center",font=("Courier",24,"normal") )
     if ball.ycor() < -390:
         player_b += 1
         ball.goto(0,0)
+        pen.clear()
+        pen.write("{} {}",format(),align="center",font=("Courier",24,"normal") )
             
